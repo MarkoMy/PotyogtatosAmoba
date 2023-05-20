@@ -1,4 +1,5 @@
-#include "graphics.hpp"
+#include "other/MyApp.hpp"
 int main(){
-    return 0;
+    MyApp app;
+    app.event_loop(700,600);
 }

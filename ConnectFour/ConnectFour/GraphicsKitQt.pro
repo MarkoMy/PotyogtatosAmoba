@@ -26,5 +26,6 @@ INCLUDEPATH += $$PWD/SDL2
 DEPENDPATH += $$PWD/SDL2
 
 HEADERS += \
+    other/MyApp.hpp \
     other/application.hpp \
     other/widgets.hpp
