@@ -4,9 +4,12 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        jatekmester.cpp \
         main.cpp \
         graphics/graphics.cpp \
+        other/Fields.cpp \
         other/application.cpp \
+        other/statictext.cpp \
         other/widgets.cpp
 
 
@@ -26,6 +29,9 @@ INCLUDEPATH += $$PWD/SDL2
 DEPENDPATH += $$PWD/SDL2
 
 HEADERS += \
+    jatekmester.hpp \
+    other/Fields.hpp \
     other/MyApp.hpp \
     other/application.hpp \
+    other/statictext.hpp \
     other/widgets.hpp
