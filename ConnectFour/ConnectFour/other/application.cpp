@@ -34,6 +34,7 @@ void application::register_widget(Widget * w){
 
 void application::start(int x, int y){
     gout.open(x,y);
-    gout.load_font("LiberationSans-Regular.ttf",20);
-    gout<< move_to(0,0) << color(0,0,255) << box(x,y);
+    gout.load_font("LiberationSans-Regular.ttf",25);
+    gout<< move_to(0,0) << color(0,0,255) << box(x-200,y)
+        << move_to(x-200,0) << color(0,0,150) << box(200,y);
 }

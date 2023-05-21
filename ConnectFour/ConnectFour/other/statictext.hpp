@@ -5,7 +5,7 @@
 
 #include <functional>
 
-enum tfield{Y,R};
+enum tfield{Y,R,D,YW,RW};
 
 class StaticText : public Widget
 {

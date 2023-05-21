@@ -8,7 +8,7 @@ std::vector<int> JatekMester::TalbaGet(){
 
 
 void JatekMester::Move(int x){
-    if(tabla[x] < 36 && tabla[x+7] != EMPTY && tabla[x] == EMPTY && _gameRun){
+    if(tabla[x] < 36 && tabla[x+7] != EMPTY && tabla[x] == EMPTY && _gameRun && !CheckTie()){
         tabla[x] = _player;
         _player = !_player;
     }
@@ -19,6 +19,14 @@ void JatekMester::CheckText(){
         AllText = Y;
     } else if(_player){
         AllText = R;
+    } else if(!_gameRun && !_player && !CheckTie()){
+        AllText = YW;
+    } else if(!_gameRun && _player && !CheckTie()){
+        AllText = RW;
+    }
+
+    if(CheckTie()){
+        AllText = D; _gameRun = !_gameRun;
     }
 }
 
@@ -43,6 +51,7 @@ void JatekMester::gameReseter(){
         tabla[i] = EMPTY;
     }
     _player = 0;
+    _gameRun = 1;
     CheckText();
 }
 

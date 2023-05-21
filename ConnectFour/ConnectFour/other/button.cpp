@@ -17,12 +17,8 @@ void Button::draw() const{
 }
 
 void Button:: handle(event ev){
-
     if(ev.type == ev_mouse && ev.button == btn_left && is_selected(ev.pos_x,ev.pos_y)){
-        action();
+        _f();
     }
 }
 
-void Button::action(){
-    _f();
-}
