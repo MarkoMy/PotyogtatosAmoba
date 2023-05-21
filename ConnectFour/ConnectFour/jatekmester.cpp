@@ -50,10 +50,68 @@ void JatekMester::checkWin(int index) {
         if(tabla[i] != tabla[i+1])
             szamlalo = 0;
         if(szamlalo == 3)
-        {_gameRun = 0;}
+        _gameRun = 0;
         }
     }
 
+    //oszlop
+    szamlalo = 0;
+    for(int i=oszlop; i < oszlop+5*7; i+=7){
+        if(tabla[i] != EMPTY){
+        if(tabla[i] == tabla[i+7] ){
+            szamlalo++;
+        }
+        if(tabla[i] != tabla[i+7])
+            szamlalo = 0;
+        if(szamlalo == 3)
+        _gameRun = 0;
+        }
+    }
+
+    //átló le-jobb
+    szamlalo = 0;
+    int r = sor;
+    int c = oszlop;
+
+    while (r > 0 && c > 0) {
+        r--;
+        c--;
+    }
+    while (r <= 5 && c <= 6) {
+            int currentIndex = r * 7 + c;
+            if (tabla[currentIndex] == tabla[index]) {
+                szamlalo++;
+                if (szamlalo >= 4)
+                   _gameRun = 0;
+            } else {
+                szamlalo = 0;
+            }
+            r++;
+            c++;
+        }
+
+    //átló le-bal
+
+    szamlalo = 0;
+    r = sor;
+    c = oszlop;
+
+    while (r > 0 && c < 0) {
+        r--;
+        c++;
+    }
+    while (r <= 5 && c >= 0) {
+            int currentIndex = r * 7 + c;
+            if (tabla[currentIndex] == tabla[index]) {
+                szamlalo++;
+                if (szamlalo >= 4)
+                   _gameRun = 0;
+            } else {
+                szamlalo = 0;
+            }
+            r++;
+            c--;
+        }
 }
 
 
