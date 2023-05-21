@@ -5,6 +5,7 @@
 #include "Fields.hpp"
 #include "jatekmester.hpp"
 #include "statictext.hpp"
+#include "button.hpp"
 
 #include <vector>
 #include <functional>
@@ -15,6 +16,12 @@ class MyApp : public application{
 public:
     MyApp():field(42){
         AllapotjelzoText = new StaticText(this,710,20,180,40,Y);
+
+        resetBTN = new Button(this,710,280,180,40,"Reset",[=](){
+            game.gameReseter();
+            updateboard();
+            updateText();
+        });
 
         //táblafeltöltés
         int z = 0;
@@ -45,6 +52,7 @@ protected:
     JatekMester game;
     vector<Fields *> field;
     StaticText * AllapotjelzoText;
+    Button *resetBTN;
 };
 
 #endif // MYAPP_HPP

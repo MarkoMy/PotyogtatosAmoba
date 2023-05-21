@@ -15,10 +15,10 @@ void StaticText::draw() const{
     else if(_iText == R)
     kText = "Piros jon";
 
-    gout<< move_to(_x,_y) << color(0,0,255) << box(_size_x,_size_y)
+    gout<< move_to(_x,_y) << color(0,0,200) << box(_size_x,_size_y)
         << move_to(_x+(_size_x - gout.twidth(kText))/2,
                    _y+(_size_y - gout.cascent()-gout.cdescent())/2)
-        <<color(0,0,0)
+        <<color(255,255,255)
         <<text(kText);
 }
 

@@ -12,6 +12,7 @@ protected:
     int _phaseText = 0;
     std::vector<int> tabla;
     int AllText;
+    bool _gameRun = 1;
 
 public:
     JatekMester():tabla(42,EMPTY){};
@@ -22,6 +23,8 @@ public:
     virtual bool CheckTie();
 
     virtual int GetText();
+
+    virtual void gameReseter();
 
 };
 

@@ -9,6 +9,7 @@ SOURCES += \
         graphics/graphics.cpp \
         other/Fields.cpp \
         other/application.cpp \
+        other/button.cpp \
         other/statictext.cpp \
         other/widgets.cpp
 
@@ -33,5 +34,6 @@ HEADERS += \
     other/Fields.hpp \
     other/MyApp.hpp \
     other/application.hpp \
+    other/button.hpp \
     other/statictext.hpp \
     other/widgets.hpp
