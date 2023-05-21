@@ -17,8 +17,8 @@ public:
 
     virtual void draw() const;
     virtual void handle(genv::event ev);
-    virtual bool is_checked();
     virtual void FieldSetter(int x);
+    virtual int getColor();
 
 protected:
     std::function<void()> _f;

@@ -18,14 +18,13 @@ public:
     JatekMester():tabla(42,EMPTY){};
     virtual std::vector<int> TalbaGet();
     virtual void Move(int x);
-    virtual bool CheckWin(int x);
+    virtual void checkWin(int x);
     virtual void CheckText();
     virtual bool CheckTie();
 
     virtual int GetText();
 
     virtual void gameReseter();
-
 };
 
 #endif // JATEKMESTER_HPP

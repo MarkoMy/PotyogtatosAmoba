@@ -38,11 +38,10 @@ void Fields::handle(event ev)
     }
 }
 
-bool Fields::is_checked()
-{
-    return _checked;
-}
-
 void Fields::FieldSetter(int x){
     _szin = x;
+}
+
+int Fields::getColor(){
+    return _szin;
 }

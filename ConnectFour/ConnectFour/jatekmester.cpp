@@ -19,9 +19,11 @@ void JatekMester::CheckText(){
         AllText = Y;
     } else if(_player){
         AllText = R;
-    } else if(!_gameRun && !_player && !CheckTie()){
+    }
+
+    if(!_gameRun && _player){
         AllText = YW;
-    } else if(!_gameRun && _player && !CheckTie()){
+    } else if(!_gameRun && !_player){
         AllText = RW;
     }
 
@@ -34,9 +36,27 @@ int JatekMester::GetText(){
     return AllText;
 }
 
-bool JatekMester::CheckWin(int x){
+void JatekMester::checkWin(int index) {
+    int sor = index / 7;
+    int oszlop = index % 7;
+
+    //sor
+    int szamlalo = 0;
+    for(int i=sor*7; i < sor*7+7; i++){
+        if(tabla[i] != EMPTY){
+        if(tabla[i] == tabla[i+1] ){
+            szamlalo++;
+        }
+        if(tabla[i] != tabla[i+1])
+            szamlalo = 0;
+        if(szamlalo == 3)
+        {_gameRun = 0;}
+        }
+    }
 
 }
+
+
 
 bool JatekMester::CheckTie() {
     for (int i = 0; i < 42; ++i) {

@@ -30,10 +30,14 @@ public:
                 z++;
             }
             field[i] = new Fields(this,(i%7)*100,(z%7)*100,100,100,EMPTY,0,[=](){
+
+
                 game.Move(i);
                 updateboard();
+                game.checkWin(i);
                 game.CheckText();
                 updateText();
+
             });
         }
     }
