@@ -8,10 +8,24 @@ std::vector<int> JatekMester::TalbaGet(){
 
 
 void JatekMester::Move(int x){
-    if(tabla[x] < 36 && tabla[x+7] != EMPTY && tabla[x] == EMPTY && _gameRun && !CheckTie()){
-        tabla[x] = _player;
-        _player = !_player;
+
+    if(_gameRun && tabla[x] == EMPTY){
+                int oszlop = x % 7;
+                for(int i=oszlop; i < oszlop+5*7; i+=7){
+                    if(tabla[i] == EMPTY && tabla[oszlop+5*7] == EMPTY){
+                        tabla[oszlop+5*7] = _player;
+                        _player = !_player;
+                        lastPlace = oszlop+5*7;
+                        break;
+                    }else if(tabla[i] == EMPTY && tabla[i+7] != EMPTY){
+                        tabla[i] = _player;
+                        _player = !_player;
+                        lastPlace = i;
+                    }
+                }
+
     }
+
 }
 
 void JatekMester::CheckText(){
@@ -36,7 +50,8 @@ int JatekMester::GetText(){
     return AllText;
 }
 
-void JatekMester::checkWin(int index) {
+void JatekMester::checkWin() {
+    int index = lastPlace;
     int sor = index / 7;
     int oszlop = index % 7;
 
@@ -79,7 +94,7 @@ void JatekMester::checkWin(int index) {
     }
     while (r <= 5 && c <= 6) {
             int currentIndex = r * 7 + c;
-            if (tabla[currentIndex] == tabla[index]) {
+            if (tabla[currentIndex] == tabla[index]&& tabla[index] != EMPTY) {
                 szamlalo++;
                 if (szamlalo >= 4)
                    _gameRun = 0;
@@ -102,7 +117,7 @@ void JatekMester::checkWin(int index) {
     }
     while (r <= 5 && c >= 0) {
             int currentIndex = r * 7 + c;
-            if (tabla[currentIndex] == tabla[index]) {
+            if (tabla[currentIndex] == tabla[index] && tabla[index] != EMPTY) {
                 szamlalo++;
                 if (szamlalo >= 4)
                    _gameRun = 0;

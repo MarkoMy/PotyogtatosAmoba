@@ -13,12 +13,13 @@ protected:
     std::vector<int> tabla;
     int AllText;
     bool _gameRun = 1;
+    int lastPlace;
 
 public:
     JatekMester():tabla(42,EMPTY){};
     virtual std::vector<int> TalbaGet();
     virtual void Move(int x);
-    virtual void checkWin(int x);
+    virtual void checkWin();
     virtual void CheckText();
     virtual bool CheckTie();
 

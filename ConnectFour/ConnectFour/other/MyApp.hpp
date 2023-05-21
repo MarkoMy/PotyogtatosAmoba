@@ -34,7 +34,7 @@ public:
 
                 game.Move(i);
                 updateboard();
-                game.checkWin(i);
+                game.checkWin();
                 game.CheckText();
                 updateText();
 
