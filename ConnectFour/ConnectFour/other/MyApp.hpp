@@ -14,9 +14,7 @@ using namespace std;
 class MyApp : public application{
 public:
     MyApp():field(42){
-        AllapotjelzoText = new StaticText(this,710,20,180,20,YELLOW,[=](){
-            game.CheckText();
-        });
+        AllapotjelzoText = new StaticText(this,710,20,180,40,Y);
 
         //táblafeltöltés
         int z = 0;
@@ -27,6 +25,8 @@ public:
             field[i] = new Fields(this,(i%7)*100,(z%7)*100,100,100,EMPTY,0,[=](){
                 game.Move(i);
                 updateboard();
+                game.CheckText();
+                updateText();
             });
         }
     }
@@ -37,8 +37,8 @@ public:
                 field[i]->FieldSetter(board[i]);
         }
 
-    void updatetext(){
-        int ntext = game.CheckText();
+    void updateText(){
+        AllapotjelzoText ->TextSetter(game.GetText());
     }
 
 protected:

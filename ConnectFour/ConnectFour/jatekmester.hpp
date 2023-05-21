@@ -3,13 +3,15 @@
 
 #include <vector>
 #include "other/Fields.hpp"
+#include "other/statictext.hpp"
 
 class JatekMester
 {
 protected:
-    bool _player = 1;
+    bool _player = 0;
     int _phaseText = 0;
     std::vector<int> tabla;
+    int AllText;
 
 public:
     JatekMester():tabla(42,EMPTY){};
@@ -18,6 +20,8 @@ public:
     virtual bool CheckWin(int x);
     virtual void CheckText();
     virtual bool CheckTie();
+
+    virtual int GetText();
 
 };
 

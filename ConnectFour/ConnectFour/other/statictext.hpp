@@ -11,14 +11,14 @@ class StaticText : public Widget
 {
 protected:
     int _iText;
-    std::function<void()> _f;
 public:
-    StaticText(application*,int, int, int, int,int iText, std::function<void()> f);
+    StaticText(application*,int, int, int, int, int _iText);
     virtual ~StaticText(){
 
     }
     virtual void draw() const;
     virtual void handle(genv::event);
+    virtual void TextSetter(int);
 };
 
 #endif // STATICTEXT_HPP

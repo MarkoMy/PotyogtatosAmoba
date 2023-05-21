@@ -14,6 +14,18 @@ void JatekMester::Move(int x){
     }
 }
 
+void JatekMester::CheckText(){
+    if(!_player){
+        AllText = Y;
+    } else if(_player){
+        AllText = R;
+    }
+}
+
+int JatekMester::GetText(){
+    return AllText;
+}
+
 bool JatekMester::CheckWin(int x){
 
 }
@@ -26,13 +38,7 @@ bool JatekMester::CheckTie() {
     return true;
 }
 
-void JatekMester::CheckText(){
-    if(_player && CheckTie()){
-        _phaseText = 0;
-    } else if(!_player && CheckTie()){
-        _phaseText = 1;
-    }
-}
+
 
 /*
  * KÉNE:
